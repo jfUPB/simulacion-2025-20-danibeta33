@@ -3,11 +3,15 @@
 ## 🔎 Fase: Set + Seek
 
 ### Actividad 01
-La belleza de lo aleatorio
+La belleza de lo aleatorio.
 
 ### Actividad 02
-En la funcion Walker cambie el numero en el cual se divide del ancho y el alto del linzo, lo que esperaria que el punto iniciara su movimiento dentro de las respectivas proporciones del eje. Segun lo enseñado y lo practicado al ejecutarlo despues de cambiar se demostro que el punto inicia su movimiento mas a la izquierda superior, mediante mas grande sea hace el numero que se divide los parametros del canvas
+El papel de la aleatoriedad en el código de Sofi está en permitir la creación de raíces y un "árbol" a partir de parámetros que combinan elementos aleatorios y no aleatorios. Es interesante el hecho de que el usuario pueda experimentar esa variabilidad de forma directa le aporta un valor extra, ya que convierte la obra en una experiencia generativa distinta para cada persona que la observa.
 
+Dentro del campo de los videojuegos, uso la aleatoriedad en la generación procedural de niveles, como en los roguelites. Por ejemplo, en The Binding of Isaac, aunque uno elige un personaje con ciertas características, los enemigos, cofres y habitaciones se generan de forma aleatoria, haciendo que cada partida sea una experiencia única.
+
+### Actividad 03
+Realicé variantes en el movimiento del punto para que fuera más aleatorio y, además, se extendiera realizando saltos.
 ``` js
     // The Nature of Code
 // Daniel Shiffman
@@ -65,9 +69,9 @@ class Walker {
 }
 
 ```
-
-
 ### Actividad 04
+
+### Actividad 05
 ``` js
 // The Nature of Code
 // Daniel Shiffman

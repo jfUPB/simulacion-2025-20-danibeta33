@@ -12,7 +12,11 @@ Dentro del campo de los videojuegos, uso la aleatoriedad en la generación proce
 
 ### Actividad 03
 Realicé variantes en el movimiento del punto para que fuera más aleatorio y, además, se extendiera realizando saltos.
-``` js
+
+<details>
+  <summary>Mostrar/Ocultar código JavaScript</summary>
+
+```js
     // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
@@ -68,7 +72,7 @@ class Walker {
   }
 }
 
-```
+</details> ```
 
 ### Actividad 04
 Uniforme = todos los números tienen la misma probabilidad.

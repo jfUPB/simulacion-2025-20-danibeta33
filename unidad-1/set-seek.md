@@ -228,3 +228,5 @@ function levyStep() {
 </details> 
 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/f26d203c-07b1-4fd8-a5c4-31fe8133cead" />
+
+### Actividad 07

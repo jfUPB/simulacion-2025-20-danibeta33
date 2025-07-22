@@ -14,7 +14,7 @@ Dentro del campo de los videojuegos, uso la aleatoriedad en la generación proce
 Realicé variantes en el movimiento del punto para que fuera más aleatorio y, además, se extendiera realizando saltos.
 
 <details>
-  <summary>Mostrar/Ocultar código JavaScript</summary>
+  <summary>Código</summary>
 
 ```js
     // The Nature of Code
@@ -72,13 +72,17 @@ class Walker {
   }
 }
 
-</details> ```
+```
+</details> 
 
 ### Actividad 04
 Uniforme = todos los números tienen la misma probabilidad.
 No uniforme = unos números poseen probabilidades mayores de ser tomados.
 
-``` js
+<details>
+  <summary>Código</summary>
+
+```js
 // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
@@ -121,5 +125,9 @@ class Walker {
   }
 }
 ```
+</details> 
 
 ### Actividad 05
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/9cb870d2-162e-48ae-87fa-32cdc6a2f2fa" />
+
+[Código](https://editor.p5js.org/danipipe344/full/pXRA03f5l)

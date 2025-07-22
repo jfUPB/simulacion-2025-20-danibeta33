@@ -77,6 +77,7 @@ class Walker {
 
 ### Actividad 04
 Uniforme = todos los números tienen la misma probabilidad.
+
 No uniforme = unos números poseen probabilidades mayores de ser tomados.
 
 <details>

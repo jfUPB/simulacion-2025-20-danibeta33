@@ -230,3 +230,31 @@ function levyStep() {
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/f26d203c-07b1-4fd8-a5c4-31fe8133cead" />
 
 ### Actividad 07
+*Use los conceptos usados y un ejemplo anterior, en el cual intente que una pelota se moviera por el eje X*
+
+<details>
+  <summary>Código</summary>
+
+```js
+let t = 0;
+
+function setup() {
+  createCanvas(600, 400);
+  background(255);
+}
+
+function draw() {
+  background(255);
+  let n = noise(t); 
+  let x = map(n, 0, 1, 0, width); 
+
+  fill(100, 100, 255);
+  circle(x, height/2, 16);
+  
+  t += 0.01; 
+}
+
+```
+</details> 
+
+<img width="400" src="https://github.com/user-attachments/assets/a133ffb1-a66d-4ae9-86d6-bcdd8bbb8cbc" />

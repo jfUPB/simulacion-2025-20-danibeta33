@@ -1,17 +1,19 @@
 # Unidad 1
 
-## 🔎 Fase: Set + Seek
+# 🔎 Fase: Set + Seek
 
-### Actividad 01
-La belleza de lo aleatorio.
+## Actividad 01
+*La belleza de lo aleatorio.*
 
-### Actividad 02
-El papel de la aleatoriedad en el código de Sofi está en permitir la creación de raíces y un "árbol" a partir de parámetros que combinan elementos aleatorios y no aleatorios. Es interesante el hecho de que el usuario pueda experimentar esa variabilidad de forma directa le aporta un valor extra, ya que convierte la obra en una experiencia generativa distinta para cada persona que la observa.
+## Actividad 02
 
-Dentro del campo de los videojuegos, uso la aleatoriedad en la generación procedural de niveles, como en los roguelites. Por ejemplo, en The Binding of Isaac, aunque uno elige un personaje con ciertas características, los enemigos, cofres y habitaciones se generan de forma aleatoria, haciendo que cada partida sea una experiencia única.
+*El papel de la aleatoriedad en el código de Sofi está en permitir la creación de raíces y un "árbol" a partir de parámetros que combinan elementos aleatorios y no aleatorios. Es interesante el hecho de que el usuario pueda experimentar esa variabilidad de forma directa le aporta un valor extra, ya que convierte la obra en una experiencia generativa distinta para cada persona que la observa.*
 
-### Actividad 03
-Realicé variantes en el movimiento del punto para que fuera más aleatorio y, además, se extendiera realizando saltos.
+*Dentro del campo de los videojuegos, uso la aleatoriedad en la generación procedural de niveles, como en los roguelites. Por ejemplo, en The Binding of Isaac, aunque uno elige un personaje con ciertas características, los enemigos, cofres y habitaciones se generan de forma aleatoria, haciendo que cada partida sea una experiencia única.¨*
+
+
+## Actividad 03
+*Realicé variantes en el movimiento del punto para que fuera más aleatorio y, además, se extendiera realizando saltos.*
 
 <details>
   <summary>Código</summary>
@@ -75,10 +77,10 @@ class Walker {
 ```
 </details> 
 
-### Actividad 04
-Uniforme = todos los números tienen la misma probabilidad.
+## Actividad 04
+*Uniforme = todos los números tienen la misma probabilidad.*
 
-No uniforme = unos números poseen probabilidades mayores de ser tomados.
+*No uniforme = unos números poseen probabilidades mayores de ser tomados.*
 
 <details>
   <summary>Código</summary>
@@ -128,7 +130,7 @@ class Walker {
 ```
 </details> 
 
-### Actividad 05
+## Actividad 05
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/9cb870d2-162e-48ae-87fa-32cdc6a2f2fa" />
 
 [Código](https://editor.p5js.org/danipipe344/full/pXRA03f5l)

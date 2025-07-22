@@ -69,9 +69,11 @@ class Walker {
 }
 
 ```
-### Actividad 04
 
-### Actividad 05
+### Actividad 04
+Uniforme = todos los números tienen la misma probabilidad.
+No uniforme = unos números poseen probabilidades mayores de ser tomados.
+
 ``` js
 // The Nature of Code
 // Daniel Shiffman
@@ -102,11 +104,11 @@ class Walker {
   }
 
   step() {
-    const choice = floor(random(4));
+    const choice = floor(randomGaussian(0.1, 0));
     if (choice == 0) {
       this.x++;
     } else if (choice == 1) {
-      this.x++;
+      this.x--;
     } else if (choice == 2) {
       this.y++;
     } else {
@@ -115,4 +117,5 @@ class Walker {
   }
 }
 ```
+
 ### Actividad 05

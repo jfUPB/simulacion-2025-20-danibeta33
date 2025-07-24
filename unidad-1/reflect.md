@@ -51,3 +51,7 @@
 *- Trataria de ser algo mas jugable donde se mueva por si solo mediante ejes, y no que toco oprimir multiples veces un boton para poder generar un movimiento. Recrar algo mas comodo al usuario para jugar*
 
 
+### Actividad 10
+
+5/5. Presenta las 3 tecnicas de aletoreidad (Perlin, Gausseano, Normal). Tiene las cosas suficientes en la bitacora. El odigo funciona y se maneja de forma correcta 
+[Sketch Compañer@](https://editor.p5js.org/luly903/sketches/gjrs6qWoL)

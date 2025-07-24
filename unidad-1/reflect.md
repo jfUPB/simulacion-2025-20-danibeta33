@@ -53,5 +53,26 @@
 
 ### Actividad 10
 
-5/5. Presenta las 3 tecnicas de aletoreidad (Perlin, Gausseano, Normal). Tiene las cosas suficientes en la bitacora. El odigo funciona y se maneja de forma correcta 
+
+*5/5. Presenta las 3 tecnicas de aletoreidad (Perlin, Gausseano, Normal). Tiene las cosas suficientes en la bitacora. El odigo funciona y se maneja de forma correcta* 
 [Sketch Compañer@](https://editor.p5js.org/luly903/sketches/gjrs6qWoL)
+
+
+### Actividad 11
+
+
+#### ¿Qué actividad, ejemplo o explicación de esta unidad te resultó más reveladora o útil para tu aprendizaje? ¿Qué deberíamos mantener sí o sí?
+
+*- Esta util la forma de enseñar de tal forma que haya una guia, unos ejemplos y una posibilidad de poder manipular el codigo para intentar comprender el funcionamiento de las funciones*
+ 
+#### Dejar de hacer: ¿Hubo alguna actividad o concepto que te pareció redundante, confuso o menos útil? ¿Hay algo que eliminarías o cambiarías por completo?
+
+*- Me parece que usar muchos conceptos de aletoreidad en uno puede llegar a ser complejo, al intentar aplicar todo dentro de un canvas de forma creativa y funcional*
+
+#### Empezar a hacer: ¿Qué te faltó en esta unidad? ¿Quizás más ejemplos de artistas, más desafíos técnicos, más teoría? ¿Qué idea tienes para hacerla mejor?
+
+*- Realmente me parece adecuada asi, tal vez tener siempre en un pie de pagina o ver como conceptos o funciones basicas que se pueden usar usualmente para este tipo de artes, como es el manejo de colores, alphas o tecnicas faciles pero rapidas que pueden haber con el codigo para generar un arte mas tecnico*
+
+#### Balance Teoría-Práctica: ¿Cómo sentiste el equilibrio entre analizar los ejemplos del texto guía y ponerte a programar tus propios sketches? Explica tu respuesta.
+
+*-Estuve balanceado el contenido teorico y practico, se supo entender los conceptos y las tecnicas para poder lugar aplicarlos a la practica*

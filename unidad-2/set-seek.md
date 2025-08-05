@@ -208,4 +208,15 @@ function drawArrow(base, vec, myColor) {
 ¿Cómo se dibuja una flecha usando drawArrow()?
 - *Esta tiene componentes en su funcion que permiten representar cualquier vector, con un punto de origen, un vector que permitira la ubicaciion y un color para representarlo graficamente*
 
-Activdad 06
+## Activdad 06
+
+Cuál es el concepto del marco motion 101 y cómo se interpreta geométricamente.
+- *Geometricamente motion 101 se basa en dos vectores, donde uno que representa la posicion del objeto y otro que representa su velocidad. Todo para mover el objeto*
+
+¿Cómo se aplica motion 101 en el ejemplo?
+- *Dentro de la clase Mover, se crea un vector position y un vector velocity. Luego, en la funcion update(), se suma el vector velocity al vector position, logrando que el objeto se desplace a traves del canvas.*
+
+  ## Actividad 07
+
+
+

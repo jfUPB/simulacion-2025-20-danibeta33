@@ -145,3 +145,67 @@ Ahora el mismo periodista curioso de antes te pregunta si le puedes dar una intu
 - *El metodo normalice() nos da el vecotr unitario y el limit() limita la magnitud de un vector*
 
 ## Actividad 05
+
+<details>
+  <summary>Código</summary>
+  
+```js
+let t = 0;  
+let increasing = true;
+
+function setup() {
+  createCanvas(500, 500);
+}
+
+function draw() {
+  background(200);
+  
+  let color = lerpColor('red','blue',t);
+  
+
+  let v0 = createVector(50, 50);  
+  let v1 = createVector(400, 0);     
+  let v2 = createVector(0, 400);     
+  
+  let startGreen = p5.Vector.add(v0, v1);       
+  let vecGreen = p5.Vector.sub(v2, v1);       
+
+  let v3 = p5.Vector.lerp(v1, v2, t); 
+
+  drawArrow(startGreen, vecGreen, 'green');
+  drawArrow(v0, v1, 'red');
+  drawArrow(v0, v2, 'blue');
+  drawArrow(v0, v3, color);
+
+  if (increasing) {
+    t += 0.01;
+    if (t >= 1) increasing = false;
+  } else {
+    t -= 0.01;
+    if (t <= 0) increasing = true;
+  }
+}
+
+function drawArrow(base, vec, myColor) {
+  push();
+  stroke(myColor);
+  strokeWeight(3);
+  fill(myColor);
+  translate(base.x, base.y);
+  line(0, 0, vec.x, vec.y);
+  rotate(vec.heading());
+  let arrowSize = 7;
+  translate(vec.mag() - arrowSize, 0);
+  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
+  pop();
+}
+```
+</details>
+
+¿Cómo funciona lerp() y lerpColor().
+- *Se interpolan entre dos vectores mediante un porcentaje, igualmente el color*
+
+¿Cómo se dibuja una flecha usando drawArrow()?
+- *Esta tiene componentes en su funcion que permiten representar cualquier vector, con un punto de origen, un vector que permitira la ubicaciion y un color para representarlo graficamente*
+
+Activdad 06

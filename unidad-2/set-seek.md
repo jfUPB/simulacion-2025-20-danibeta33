@@ -63,7 +63,7 @@ class Walker {
 - *Simplemente que se escribiera por consola los mensajes del Log*
 
 ¿Qué resultado obtuviste?
-- "Se obtuvieron los resultados previstos, en el draw no se involucro nada, asi q solo se hace un canvas*
+- *Se obtuvieron los resultados previstos, en el draw no se involucro nada, asi q solo se hace un canvas*
 
 Recuerda los conceptos de paso por valor y paso por referencia en programación. Muestra ejemplos de este concepto en javascript.
 - *Paso por valor*
@@ -123,4 +123,5 @@ console.log(numero);
 - *El uso de referencia y objeto, su diferencia al canipular la informacion, como se guarada en sistemas el valor por valor, y las diferencias de uso*
 
 ## Activdad 04
+
 

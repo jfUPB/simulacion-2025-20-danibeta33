@@ -57,3 +57,70 @@ class Walker {
 }
 ```
 </details>
+
+## Actividad 03
+¿Qué resultado esperas obtener en el programa anterior?
+- *Simplemente que se escribiera por consola los mensajes del Log*
+
+¿Qué resultado obtuviste?
+- "Se obtuvieron los resultados previstos, en el draw no se involucro nada, asi q solo se hace un canvas*
+
+Recuerda los conceptos de paso por valor y paso por referencia en programación. Muestra ejemplos de este concepto en javascript.
+- *Paso por valor*
+
+<details>
+  <summary>Código</summary>
+  
+```js
+  let num = 1;
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+}
+
+function cambiar(num2) {
+  num2 = 100;
+}
+
+cambiar(num);
+console.log(num);
+```
+</details>
+
+- *Paso por referencia*
+  
+<details>
+  <summary>Código</summary>
+  
+```js
+ let numero = {num:1};
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+}
+
+function cambiar(num2) {
+  num2.numero = 100;
+}
+
+cambiar(numero);
+console.log(numero);
+```
+</details>
+
+¿Qué tipo de paso se está realizando en el código?
+- *Se gace por referencia, mas especificamente en el playinVector, donde entra al position y cambia referenciado a X y Y*
+
+¿Qué aprendiste?
+- *El uso de referencia y objeto, su diferencia al canipular la informacion, como se guarada en sistemas el valor por valor, y las diferencias de uso*
+
+## Activdad 04
+

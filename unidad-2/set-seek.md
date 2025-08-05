@@ -118,10 +118,30 @@ console.log(numero);
 
 ¿Qué tipo de paso se está realizando en el código?
 - *Se gace por referencia, mas especificamente en el playinVector, donde entra al position y cambia referenciado a X y Y*
-
+  
 ¿Qué aprendiste?
 - *El uso de referencia y objeto, su diferencia al canipular la informacion, como se guarada en sistemas el valor por valor, y las diferencias de uso*
 
 ## Activdad 04
+¿Para qué sirve el método mag()? Nota que hay otro método llamado magSq(). ¿Cuál es la diferencia entre ambos? ¿Cuál es más eficiente?
+- *El metodo mag() da la magnitud del vector exacto, a diferencia del magSq(), este se ahorra sacar raiz cuadrada. Por ello, tal vez para procedimientos grandes o constantes el mas eficiente es magSq() debido a que se ahorra el procedimiento de la raiz*
 
+¿Para qué sirve el método normalize()?
+- *Sirve para sacar el vecotr unitario del vector*
 
+Te encuentras con un periodista en la calle y te pregunta ¿Para qué sirve el método dot()? ¿Qué le responderías en un frase?
+- *Nos sirve para saber la relacion de direccion entre dos vectores*
+
+El método dot() tiene una versión estática y una de instancia. ¿Cuál es la diferencia entre ambas?
+- *La forma de llamar al metodo*
+
+Ahora el mismo periodista curioso de antes te pregunta si le puedes dar una intuición geométrica acerca del producto cruz. Entonces te pregunta ¿Cuál es la interpretación geométrica del producto cruz de dos vectores? Tu respuesta debe incluir qué pasa con la orientación y la magnitud del vector resultante.
+- *El resultado de un producto cruz es un vector que se encuentra perpendicular al plano que forman los vectores que se usaron para la multiplicacion. Un ejemplo claro es es el producto cruz del eje X y el eje Y es el eje Z*
+
+¿Para que te puede servir el método dist()?
+- *Este metodo sirve para saber la distancia entre dos vectores, un uso es que su porpia operacion es el calculo de una magnitud de otro vector, por lo que nos daria el valor de un supuesto vector 3 que conecta a los vectores 1 y 2*
+
+¿Para qué sirven los métodos normalize() y limit()?
+- *El metodo normalice() nos da el vecotr unitario y el limit() limita la magnitud de un vector*
+
+## Actividad 05

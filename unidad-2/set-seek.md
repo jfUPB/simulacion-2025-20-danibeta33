@@ -216,7 +216,12 @@ Cuál es el concepto del marco motion 101 y cómo se interpreta geométricamente
 ¿Cómo se aplica motion 101 en el ejemplo?
 - *Dentro de la clase Mover, se crea un vector position y un vector velocity. Luego, en la funcion update(), se suma el vector velocity al vector position, logrando que el objeto se desplace a traves del canvas.*
 
-  ## Actividad 07
+## Actividad 07
+- *Con una acelarion constante, esta simplemente va a moerse con una velocidad mayor que la anterior*
+- *Con una aceleracion se va a mover de manera erratica*
+- *Nunca se va a detener, al normalizar un vecotr, y mutiplicarlo, nunca permite llegar a 0, manteniendo al circulo en movmiento*
+
+
 
 
 

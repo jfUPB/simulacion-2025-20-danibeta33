@@ -112,3 +112,109 @@ class FadingSquare {
 </details>
 
 <img width="150" src="https://github.com/user-attachments/assets/1dd1907d-c6fb-436f-b260-e8ac23e48a5e" />
+
+### *Fuerza de resistencia a fluidos*
+
+Explica cómo modelaste cada fuerza.
+- *la variable growth representa la velocidad de cambio del radio, y puede ser modificada por fuerzas externas, y la resistencia a los fluidos que frena el movimiento*
+
+Conceptualmente cómo se relaciona la fuerza con la obra generativa.
+- *Se relaciona de tal forma en el movimiento aleatorio que tiene el objeto, mediante seste puede tomar un mayor recorrido o uno menor, dibujando asi algo en el canvas*
+
+[Gotas](https://editor.p5js.org/danipipe344/full/_5IHrvl-H)
+
+<details>
+  <summary>Slimes</summary>
+  
+```js
+let circles = [];
+let lastSpawn = 0;
+const spawnEvery = 1500;
+let liquid;
+
+function setup() {
+  createCanvas(600, 400);
+  noStroke();
+  liquid = new Liquid(0, 0, width, height, 0.05);
+}
+
+function draw() {
+  background(200, 30);
+
+  if (millis() - lastSpawn > spawnEvery) {
+    circles.push(new GrowingCircle(random(width), random(height)));
+    lastSpawn = millis();
+  }
+
+  liquid.display();
+
+  for (let c of circles) {
+    if (liquid.contains(c)) {
+      let drag = liquid.calculateDrag(c);
+      c.applyForce(drag);
+    }
+    c.update();
+    c.show();
+  }
+}
+
+class GrowingCircle {
+  constructor(x, y) {
+    this.pos = createVector(x, y);
+    this.radius = 5;
+    this.growth = createVector(0, random(2, 4));
+    this.acc = createVector(0, 0);
+    this.mass = random(0.5, 2);
+    this.col = color(random(255), random(255), random(255), 120);
+  }
+
+  applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acc.add(f);
+  }
+
+  update() {
+    this.growth.add(this.acc);
+    this.radius += this.growth.y;
+    this.acc.mult(0);
+    this.radius = constrain(this.radius, 0, 200);
+  }
+
+  show() {
+    fill(this.col);
+    ellipse(this.pos.x, this.pos.y, this.radius * 2);
+  }
+}
+
+class Liquid {
+  constructor(x, y, w, h, c) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.c = c;
+  }
+
+  contains(circle) {
+    return (circle.pos.x > this.x && circle.pos.x < this.x + this.w &&
+            circle.pos.y > this.y && circle.pos.y < this.y + this.h);
+  }
+
+  calculateDrag(circle) {
+    let speed = circle.growth.mag();
+    let dragMag = this.c * speed * speed;
+    let drag = circle.growth.copy();
+    drag.mult(-1);
+    drag.setMag(dragMag);
+    return drag;
+  }
+
+  display() {
+    fill(100, 150, 255, 50);
+    rect(this.x, this.y, this.w, this.h);
+  }
+}
+```
+</details>
+
+<img width="150" height="401" alt="image" src="https://github.com/user-attachments/assets/4fe8dcc1-d20e-41cc-9d63-40f512d2d486" />

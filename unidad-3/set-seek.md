@@ -130,12 +130,11 @@ Conceptualmente cómo se relaciona la fuerza con la obra generativa.
 let circles = [];
 let lastSpawn = 0;
 const spawnEvery = 1500;
-let liquid;
+const c = 0.05; 
 
 function setup() {
   createCanvas(600, 400);
   noStroke();
-  liquid = new Liquid(0, 0, width, height, 0.05);
 }
 
 function draw() {
@@ -146,13 +145,9 @@ function draw() {
     lastSpawn = millis();
   }
 
-  liquid.display();
-
   for (let c of circles) {
-    if (liquid.contains(c)) {
-      let drag = liquid.calculateDrag(c);
-      c.applyForce(drag);
-    }
+    let drag = calculateDrag(c);
+    c.applyForce(drag);
     c.update();
     c.show();
   }
@@ -186,35 +181,112 @@ class GrowingCircle {
   }
 }
 
-class Liquid {
-  constructor(x, y, w, h, c) {
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-    this.c = c;
-  }
-
-  contains(circle) {
-    return (circle.pos.x > this.x && circle.pos.x < this.x + this.w &&
-            circle.pos.y > this.y && circle.pos.y < this.y + this.h);
-  }
-
-  calculateDrag(circle) {
-    let speed = circle.growth.mag();
-    let dragMag = this.c * speed * speed;
-    let drag = circle.growth.copy();
-    drag.mult(-1);
-    drag.setMag(dragMag);
-    return drag;
-  }
-
-  display() {
-    fill(100, 150, 255, 50);
-    rect(this.x, this.y, this.w, this.h);
-  }
+function calculateDrag(circle) {
+  let speed = circle.growth.mag();
+  let dragMag = c * speed * speed;
+  let drag = circle.growth.copy();
+  drag.mult(-1);
+  drag.setMag(dragMag);
+  return drag;
 }
 ```
 </details>
 
 <img width="150" height="401" alt="image" src="https://github.com/user-attachments/assets/4fe8dcc1-d20e-41cc-9d63-40f512d2d486" />
+
+### *Fuerza de atracción gravitacional*
+
+Explica cómo modelaste cada fuerza.
+- *Simplemente se modelo un circulo en el centro del canvas que genera una fuerza de atraccion, afectando a cada mover individualmente*
+
+Conceptualmente cómo se relaciona la fuerza con la obra generativa.
+- *Los movers con sus colores dejan un rastro movimndose un de forma aleatoria mientas son atraidas hacia el centro*
+
+[Gravitación](https://editor.p5js.org/danipipe344/full/sidSwYScf1)
+
+<details>
+  <summary>Slimes</summary>
+  
+```js
+let attractor;
+let movers = [];
+let lastSpawn = 0;
+const spawnEvery = 1200;
+const G = 1;
+
+function setup() {
+  createCanvas(600, 400);
+  attractor = new Attractor(width / 2, height / 2, 20);
+}
+
+function draw() {
+  background(90, 10);
+
+  if (millis() - lastSpawn > spawnEvery) {
+    movers.push(new Mover(random(width), random(height), random(0.5, 2)));
+    lastSpawn = millis();
+  }
+
+  for (let m of movers) {
+    let force = attractor.attract(m);
+    m.applyForce(force);
+    m.update();
+    m.display();
+  }
+
+  attractor.display();
+}
+
+class Mover {
+  constructor(x, y, m) {
+    this.pos = createVector(x, y);
+    this.vel = createVector(random(-1, 1), random(-1, 1));
+    this.acc = createVector(0, 0);
+    this.mass = m;
+    this.col = color(random(100, 255), random(100, 255), random(100, 255), 180);
+  }
+
+  applyForce(force) {
+    let f = p5.Vector.div(force, this.mass);
+    this.acc.add(f);
+  }
+
+  update() {
+    this.vel.add(this.acc);
+    this.vel.limit(5);
+    this.pos.add(this.vel);
+    this.acc.mult(0);
+  }
+
+  display() {
+    noStroke();
+    fill(this.col);
+    ellipse(this.pos.x, this.pos.y, this.mass * 16);
+  }
+}
+
+class Attractor {
+  constructor(x, y, m) {
+    this.pos = createVector(x, y);
+    this.mass = m;
+  }
+
+  attract(mover) {
+    let force = p5.Vector.sub(this.pos, mover.pos);
+    let distance = force.mag();
+    distance = constrain(distance, 5, 25);
+    let strength = (G * this.mass * mover.mass) / (distance * distance);
+    force.setMag(strength);
+    return force;
+  }
+
+  display() {
+    noStroke();
+    fill(200, 0, 100, 200);
+    ellipse(this.pos.x, this.pos.y, this.mass * 2);
+  }
+}
+```
+</details>
+
+<img width="150" alt="image" src="https://github.com/user-attachments/assets/cfcdbff3-35d9-4f3e-8a71-084da2482f6f" />

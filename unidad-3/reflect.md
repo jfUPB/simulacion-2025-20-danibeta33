@@ -41,3 +41,20 @@
 
 #### 3. ¿Qué técnica o idea de su implementación te gustaría aplicar en tus futuros proyectos?
 - *La forma visual de poder enlzar los cuerpos entre ellos*
+
+## Actividad 13
+
+#### 1. Continuar: ¿Qué actividad o concepto de esta unidad te resultó más “revelador” para entender las fuerzas en el arte generativo?
+- *Me parece creativo el hecho de entender que hay que mulpliticar por 0 cada frame, si no se aclaraba eso, creeria que despues de mucho tiempo no podria haberme percatado de eso, ya que eso no se tiene en cuenta en la practica*
+
+#### 2. Dejar de hacer: ¿Hubo alguna actividad que te pareció redundante o menos efectiva para comprender el modelado de fuerzas?
+- *La friccion o la resistencia puede usarse en un mismo ejercicio o se pueden aplicar visualmente muy parecido*
+
+#### 3. Progresión conceptual: ¿El paso de manipular aceleración directamente (unidad 2) a modelar fuerzas (unidad 3) te pareció una progresión natural y efectiva? ¿Por qué?
+- *Esta bien, ese es el orden en cursos de fisica*
+
+#### 4. Conexión arte-física: ¿Cómo te ha ayudado esta unidad a ver la conexión entre conceptos físicos y expresión artística? ¿Te sientes más cómodo “jugando” con las leyes de la física en tus creaciones?
+- *No habia usada la fisica en la aplicacion artistica, me parece algo innovador, algo nuevo, e interesante. Con solo tener que hacer las actividades tratas de hacer cosas en la vida real y tratar de convertirlo en arte, tratar de asemejar la realidad con un poco de algo creativo*
+
+#### 1. Comentario adicional: ¿Algo más que quieras compartir sobre tu experiencia explorando fuerzas en el arte generativo?
+- *Es interesante, entiendo que es obra generativa, pero me gustaria hacer sistemas demovimientos de cuerpos, al estilo de ejercicios de fisica*

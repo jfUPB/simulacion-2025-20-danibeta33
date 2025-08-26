@@ -1,6 +1,7 @@
 # Unidad 3: 🤔 Fase: Reflect
 
 ## Actividad 11
+
 ### Parte 1: recuperación de conocimiento (Retrieval Practice)
 
 #### 1. Escribe la ecuación vectorial de la segunda ley de Newton y explica cada uno de sus componentes.
@@ -30,3 +31,13 @@
 - *HUbiera sido bueno intentar aprender ejercicios o modelar problemas con la tension, como cuerdas o sistemas de poleas. Al ser tambien una fuerza basica en la fisica*
 
 ## Actividad 12
+#### Compañer@: Juliana Monroy
+
+#### 1. ¿Qué fue lo que más te llamó la atención del trabajo de tu compañero?
+- *El tipo de cuerda o alambre que hace que aparenta la influencia entre las bolas*
+
+#### 2. ¿Qué aprendiste de su enfoque para modelar fuerzas?
+- *Mejore mi entendimiento con el salto de Levy, ya que me parece algo raro o dificil de incorporar en el arte*
+
+#### 3. ¿Qué técnica o idea de su implementación te gustaría aplicar en tus futuros proyectos?
+- *La forma visual de poder enlzar los cuerpos entre ellos*

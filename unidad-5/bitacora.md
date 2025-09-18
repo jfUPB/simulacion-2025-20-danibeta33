@@ -119,7 +119,7 @@ function draw() {
 ### Ejemplo 4.4: a System of Systems.
 
 <details>
-  <summary>Codigo Ejemplo 4.4:Sketch</summary>
+  <summary>Codigo Ejemplo 4.4: Sketch</summary>
   
 ```js
 // The Nature of Code
@@ -154,7 +154,7 @@ function mousePressed() {
 </details>
 
 <details>
-  <summary>Codigo Ejemplo 4.4:Particle</summary>
+  <summary>Codigo Ejemplo 4.4: Particle</summary>
   
 ```js
 // The Nature of Code
@@ -216,7 +216,7 @@ class Particle {
 </details>
 
 <details>
-  <summary>Codigo Ejemplo 4.4:Emitter</summary>
+  <summary>Codigo Ejemplo 4.4: Emitter</summary>
   
 ```js
 // The Nature of Code
@@ -277,13 +277,169 @@ class Emitter {
 ### Ejemplo 4.5: a Particle System with Inheritance and Polymorphism.
 
 <details>
-  <summary>Codigo Ejemplo 4.5</summary>
+  <summary>Codigo Ejemplo 4.5: Sketch</summary>
   
 ```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+// Particles are generated each cycle through draw(),
+// fall with gravity and fade out over time
+// A ParticleSystem object manages a variable size
+// list of particles.
+
+
+let emitter;
+
+function setup() {
+  createCanvas(640, 240);
+  emitter = new Emitter(width / 2, 20);
+}
+
+function draw() {
+  background(255);
+  emitter.addParticle();
+  emitter.run();
+}
+```
+</details>
+<details>
+  <summary>Codigo Ejemplo 4.5: Emitter</summary>
+  
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+class Emitter {
+  constructor(x, y) {
+    this.origin = createVector(x, y);
+    this.particles = [];
+  }
+
+ 
+levy(min = 0.01, max = 1) {
+    let beta = 1.5; 
+    let r = random(min, max);
+    return pow(1 / r, 1 / beta);
+  }
+
+  addParticle() {
+   
+    let step = this.levy();
+    let chance = random(1);
+
+    let probConfetti = 0.1 + 0.02 * step; // base = 10%
+   if (chance < probConfetti) {
+  this.particles.push(new Confetti(this.origin.x, this.origin.y));
+  } else {
+  this.particles.push(new Particle(this.origin.x, this.origin.y));
+  }
+  }
+
+
+  run() {
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      let p = this.particles[i];
+      p.run();
+      if (p.isDead()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+}
 ```
 </details>
 
-[Enlace Ejemplo 4.5](https://chatgpt.com/c/68cb4dfd-4c20-8323-9e93-d28596440a84)
+<details>
+  <summary>Codigo Ejemplo 4.5: Partcile</summary>
+  
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+// Simple Particle System
+
+// A simple Particle class
+
+class Particle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.acceleration = createVector(0, 0);
+    this.velocity = createVector(random(-1, 1), random(-1, 0));
+    this.lifespan = 255.0;
+  }
+
+  run() {
+    let gravity = createVector(0, 0.05);
+    this.applyForce(gravity);
+    this.update();
+    this.show();
+  }
+
+  applyForce(force) {
+    this.acceleration.add(force);
+  }
+
+  // Method to update position
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.lifespan -= 2;
+    this.acceleration.mult(0);
+  }
+
+  // Method to display
+  show() {
+    stroke(0, this.lifespan);
+    strokeWeight(2);
+    fill(127, this.lifespan);
+    circle(this.position.x, this.position.y, 8);
+  }
+
+  isDead() {
+    return this.lifespan < 0.0;
+  }
+}
+```
+</details>
+
+<details>
+  <summary>Codigo Ejemplo 4.5: Confeti</summary>
+  
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+// Child class constructor
+class Confetti extends Particle {
+  // Override the show method
+  show() {
+    let angle = map(this.position.x, 0, width, 0, TWO_PI * 2);
+
+    rectMode(CENTER);
+    fill(127, this.lifespan);
+    stroke(0, this.lifespan);
+    strokeWeight(2);
+    push();
+    translate(this.position.x, this.position.y);
+    rotate(angle);
+    square(0, 0, 12);
+    pop();
+  }
+}
+```
+</details>
+
+[Enlace Ejemplo 4.5](https://editor.p5js.org/danipipe344/full/yhVpWwkrA)
+
+<img width="300" src="https://github.com/user-attachments/assets/3a35a136-a1f7-4fb1-83eb-814a4d649460" />
+
+> El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un tiempo de vida, donde se revisa un array de las particulas, y las borra en el orden contrario, ademas de mantener por medio de una funcion crear emisores, y revisar esos emisores con sus propias funciones. **Los cambios** fue añadir un salto de levy en la generacion de la particula de Confetti, teniendo un porcentaje menor de aparicion en vez de ser por algo aleatorio.
+>
 
 ### Ejemplo 4.6: a Particle System with Forces.
 
@@ -306,6 +462,7 @@ class Emitter {
 </details>
 
 [Enlace Ejemplo 4.7](https://chatgpt.com/c/68cb4dfd-4c20-8323-9e93-d28596440a84)
+
 
 
 

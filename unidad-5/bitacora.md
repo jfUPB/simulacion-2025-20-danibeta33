@@ -587,13 +587,212 @@ class Emitter {
 ### Ejemplo 4.7: a Particle System with a Repeller.
 
 <details>
-  <summary>Codigo Ejemplo 4.7</summary>
+  <summary>Codigo Ejemplo 4.7: Sketch</summary>
   
 ```js
+// One ParticleSystem
+let emitter;
+
+//{!1} One repeller
+let repeller;
+let attractor;
+
+let G = 0.5;
+
+function setup() {
+  createCanvas(640 , 240);
+   emitter = new Emitter(width / 2, 60);
+   repeller = new Repeller(width / 4, height - 20);
+   attractor = new Attractor(width / 1.2, height -20);
+}
+
+function draw() {
+  background(255);
+  emitter.addParticle();
+  // We’re applying a universal gravity.
+  let gravity = createVector(0, 0.1);
+  emitter.applyForce(gravity);
+  //{!1} Applying the repeller
+  emitter.applyRepeller(repeller);
+  emitter.run();
+
+  repeller.show();
+  attractor.show();;
+  
+}
 ```
 </details>
 
-[Enlace Ejemplo 4.7](https://chatgpt.com/c/68cb4dfd-4c20-8323-9e93-d28596440a84)
+<details>
+  <summary>Codigo Ejemplo 4.7: Attractor</summary>
+  
+```js
+class Attractor {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.mass = 20;
+  }
+
+  attract(particle) {
+    let force = p5.Vector.sub(this.position, particle.position);
+    let distance = force.mag();
+    distance = constrain(distance, 5, 25);
+    let strength = (G * this.mass * 1) / (distance * distance);
+    force.setMag(strength);
+    return force;
+  }
+
+  show() {
+    stroke(0);
+    fill(100, 150, 255, 150);
+    circle(this.position.x, this.position.y, this.mass * 2);
+  }
+}
+
+```
+</details>
+
+<details>
+  <summary>Codigo Ejemplo 4.7: Emitter</summary>
+  
+```js
+//{!1} The Emitter manages all the particles.
+class Emitter {
+
+  constructor(x, y) {
+    this.origin = createVector(x, y);
+    this.particles = [];
+  }
+
+  addParticle() {
+    this.particles.push(new Particle(this.origin.x, this.origin.y));
+  }
+
+  applyForce(force) {
+    //{!3} Applying a force as a p5.Vector
+    for (let particle of this.particles) {
+      particle.applyForce(force);
+    }
+  }
+
+  applyRepeller(repeller) {
+    //{!4} Calculating a force for each Particle based on a Repeller
+    for (let particle of this.particles) {
+      let force = repeller.repel(particle);
+      particle.applyForce(force);
+    }
+  }
+  
+   applyAttractor(attractor) {
+    for (let particle of this.particles) {
+      let force = attractor.attract(particle);
+      particle.applyForce(force);
+    }
+  }
+
+  run() {
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      const particle = this.particles[i];
+      particle.run();
+      if (particle.isDead()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+}
+```
+</details>
+
+<details>
+  <summary>Codigo Ejemplo 4.7: Particle</summary>
+  
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+// Simple Particle System
+
+// A simple Particle class
+
+class Particle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.velocity = p5.Vector.random2D().mult(random(1, 3));
+    this.acceleration = createVector(0, 0);
+    this.lifespan = 255.0;
+  }
+
+  run() {
+    this.update();
+    this.show();
+  }
+
+  applyForce(f) {
+    this.acceleration.add(f);
+  }
+
+  // Method to update position
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.lifespan -= 2;
+    this.acceleration.mult(0);
+  }
+
+  // Method to display
+  show() {
+    stroke(0, this.lifespan);
+    strokeWeight(2);
+    fill(127, this.lifespan);
+    circle(this.position.x, this.position.y, 8);
+  }
+
+  // Is the particle still useful?
+  isDead() {
+    return this.lifespan < 0.0;
+  }
+}
+```
+</details>
+
+<details>
+  <summary>Codigo Ejemplo 4.7: Repeller</summary>
+  
+```js
+class Repeller {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    //{!1} How strong is the repeller?
+    this.power = 150;
+  }
+
+  show() {
+    stroke(0);
+    strokeWeight(2);
+    fill(127);
+    circle(this.position.x, this.position.y, 32);
+  }
+
+  repel(particle) {
+    //{!6 .code-wide} This is the same repel algorithm we used in Chapter 2: forces based on gravitational attraction.
+    let force = p5.Vector.sub(this.position, particle.position);
+    let distance = force.mag();
+    distance = constrain(distance, 5, 50);
+    let strength = (-1 * this.power) / (distance * distance);
+    force.setMag(strength);
+    return force;
+  }
+}
+```
+</details>
+
+<img width="300" src="https://github.com/user-attachments/assets/10513fd3-5f0e-4785-bfa0-1eaf99fd9711" />
+
+[Enlace Ejemplo 4.7](https://editor.p5js.org/danipipe344/full/a7_sspM_E)
+<br></br>
+
+> El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un tiempo de vida, donde se revisa un array de las particulas, y las borra en el orden contrario, ademas de mantener por medio de una funcion crear emisores, y revisar esos emisores con sus propias funciones. Poseia una logica para asignar las fuerzas a las particulas mediante el emisor **Los cambios** que hice fue, crear una archivo attractor, usando de referencia el ejemplo de *https://editor.p5js.org/natureofcode/sketches/Cl0Eeaz_V*, donde lo implemente en el codigo, mediante la misma forma que el objeto que repele a las particulas
 
 
 

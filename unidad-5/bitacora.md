@@ -794,6 +794,7 @@ class Repeller {
 
 > El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un tiempo de vida, donde se revisa un array de las particulas, y las borra en el orden contrario, ademas de mantener por medio de una funcion crear emisores, y revisar esos emisores con sus propias funciones. Poseia una logica para asignar las fuerzas a las particulas mediante el emisor **Los cambios** que hice fue, crear una archivo attractor, usando de referencia el ejemplo de *https://editor.p5js.org/natureofcode/sketches/Cl0Eeaz_V*, donde lo implemente en el codigo, mediante la misma forma que el objeto que repele a las particulas
 
+# Evidencias de la unidad 5 - Apply: Aplicación
 
 
 

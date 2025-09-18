@@ -10,7 +10,7 @@
 >
 
 ### Ejemplo 4.5: a Particle System with Inheritance and Polymorphism.
-> 
+> El sistema es el mismo, la diferencia viene siendo de que forma aleatoria se elijen entre un cuadrado o un circulo, generando particulas de un polimorfismo, pero la eliminacion y administracion se mantiene igual a los otros ejemplos.
 >
 
 ### Ejemplo 4.6: a Particle System with Forces.
@@ -20,4 +20,5 @@
 ### Ejemplo 4.7: a Particle System with a Repeller.
 > 
 >
+
 

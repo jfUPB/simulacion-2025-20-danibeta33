@@ -18,8 +18,9 @@
 >
 
 ### Ejemplo 4.7: a Particle System with a Repeller.
-> 
+> El repulsor añade una fuerza localizada pero la gestión de partículas es idéntica: creación con new, desaparición con isDead() y eliminación del array.
 >
+
 
 
 

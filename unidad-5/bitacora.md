@@ -14,11 +14,12 @@
 >
 
 ### Ejemplo 4.6: a Particle System with Forces.
-> 
+> Cada partícula sigue el mismo ciclo de vida, pero ahora acumula y aplica fuerzas. Al morir y ser eliminada, también se liberan esos objetos internos
 >
 
 ### Ejemplo 4.7: a Particle System with a Repeller.
 > 
 >
+
 
 

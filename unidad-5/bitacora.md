@@ -21,6 +21,7 @@
 > El repulsor añade una fuerza localizada pero la gestión de partículas es idéntica: creación con new, desaparición con isDead() y eliminación del array.
 >
 
+## Actividad 02: Experimentos
 
 
 

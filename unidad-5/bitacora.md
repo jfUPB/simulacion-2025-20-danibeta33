@@ -76,6 +76,38 @@ class Particle {
 ```
 </details>
 
+<details>
+  <summary>Codigo Ejemplo 4.2: Sketch</summary>
+  
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+let particles = [];
+
+function setup() {
+  createCanvas(700, 900);
+}
+
+function draw() {
+  background(255);
+  particles.push(new Particle(width / 2, 20));
+
+  // Looping through backwards to delete
+  for (let i = particles.length - 1; i >= 0; i--) {
+    let particle = particles[i];
+    particle.run();
+    if (particle.isDead()) {
+      //remove the particle
+      particles.splice(i, 1);
+    }
+  }
+}
+```
+</details>
+
+
 [Enlace Ejemplo 4.2](https://editor.p5js.org/danipipe344/full/ToGpPGcIy)
 
 <img width="300" src="https://github.com/user-attachments/assets/15630ac2-19b9-4e8b-a7f7-5c9f46465e9f" />
@@ -127,4 +159,5 @@ class Particle {
 </details>
 
 [Enlace Ejemplo 4.7](https://chatgpt.com/c/68cb4dfd-4c20-8323-9e93-d28596440a84)
+
 

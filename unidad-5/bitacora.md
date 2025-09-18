@@ -80,7 +80,7 @@ class Particle {
 
 <img width="300" src="https://github.com/user-attachments/assets/15630ac2-19b9-4e8b-a7f7-5c9f46465e9f" />
 
-> El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un timepo de vida, donde se revisa un array dee las particulas, y las borra en el orden contrario. *Los cambios* que hice fue poner un noise, debido a la sencilles del ejercicio me parecio correcto simplemente cambiar los colores de la particula mientras viven, ademas para poder visualizarlo bien agrande el canvas y alargue la vida de las particulas.
+> El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un timepo de vida, donde se revisa un array dee las particulas, y las borra en el orden contrario. **Los cambios** que hice fue poner un noise, debido a la sencilles del ejercicio me parecio correcto simplemente cambiar los colores de la particula mientras viven, ademas para poder visualizarlo bien agrande el canvas y alargue la vida de las particulas.
 >
 
 
@@ -127,3 +127,4 @@ class Particle {
 </details>
 
 [Enlace Ejemplo 4.7](https://chatgpt.com/c/68cb4dfd-4c20-8323-9e93-d28596440a84)
+

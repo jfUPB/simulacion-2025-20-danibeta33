@@ -806,6 +806,8 @@ class Repeller {
 >El concepto nacio de tomar primero las ideas que queria de cada unidad. Tome las formaciones de seno y coseno, formando asi un tipo de ADN, pero me gusto el hecho de mezlcarlo con lago espacil como el cosmos, asi que lo plantee el canvas como si fuera un cielo estrellado, y el atractor una estrella gigante que atrae a las pequeñas particulas en primer plano
 >
 
+## Obra: Atracción entre polos 
+
 ### Polimorfismo y Herencia en el proyecto
 >Ya que son 3 tipos de particuals que se manifiestan en el proyecto, cree una base, de ahi cree clases hijas que son: Azul y Estrella. DOnde solo utilizan la logica o la forma basica de la particula y unicamente van a modificar las cosas como el uptade o el show, y en casos el isDead.
 >
@@ -1100,3 +1102,4 @@ class ParticleStar extends ParticleBase {
 
 <img width="400" src="https://github.com/user-attachments/assets/ee667aac-0285-4958-9f07-914ce3629083" />
 <br></br>
+

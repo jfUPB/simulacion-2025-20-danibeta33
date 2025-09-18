@@ -444,13 +444,141 @@ class Confetti extends Particle {
 ### Ejemplo 4.6: a Particle System with Forces.
 
 <details>
-  <summary>Codigo Ejemplo 4.6</summary>
+  <summary>Codigo Ejemplo 4.6: Sketch</summary>
   
 ```js
+let emitter;
+
+function setup() {
+  createCanvas(1280, 480);
+  emitter = new Emitter(width / 4, 50);
+}
+
+function draw() {
+  background(255, 30);
+ let gravity = createVector(0, 0.1);
+  
+  emitter.addParticle();
+  emitter.applyForce(gravity);
+
+  
+  if (mouseIsPressed) {
+    let wind = createVector(0.2, 0); 
+    emitter.applyForce(wind);
+  }
+
+  emitter.run();
+}
 ```
 </details>
 
-[Enlace Ejemplo 4.6](https://chatgpt.com/c/68cb4dfd-4c20-8323-9e93-d28596440a84)
+<details>
+  <summary>Codigo Ejemplo 4.6: Particle</summary>
+  
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+// Simple Particle System
+
+// A simple Particle class
+
+class Particle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.acceleration = createVector(0, 0.0);
+    this.velocity = createVector(random(-1, 1), random(-2, 0));
+    this.lifespan = 255.0;
+    this.mass = 1; // Let's do something better here!
+  }
+
+  run() {
+    this.update();
+    this.show();
+  }
+
+  applyForce(force) {
+    let f = force.copy();
+    f.div(this.mass);
+    this.acceleration.add(f);
+  }
+
+  // Method to update position
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+    this.lifespan -= 2.0;
+  
+    
+  }
+
+  // Method to display
+  show() {
+    stroke(0, this.lifespan);
+    strokeWeight(2);
+    fill(127, this.lifespan);
+    circle(this.position.x, this.position.y, 8);
+  }
+
+  // Is the particle still useful?
+  isDead() {
+    return this.lifespan < 0.0;
+  }
+}
+```
+</details>
+
+<details>
+  <summary>Codigo Ejemplo 4.6: Emitter</summary>
+  
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+class Emitter {
+
+  constructor(x, y) {
+    this.origin = createVector(x, y);
+    this.particles = [];
+  }
+
+  addParticle() {
+    this.particles.push(new Particle(this.origin.x, this.origin.y));
+  }
+
+  applyForce(force) {
+    //{!3} Using a for of loop to apply the force to all particles
+    for (let particle of this.particles) {
+      particle.applyForce(force);
+    }
+  }
+   
+
+  run() {
+    //{!7} Can’t use the enhanced loop because checking for particles to delete.
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      const particle = this.particles[i];
+      particle.run();
+      if (particle.isDead()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+  
+   
+}
+```
+</details>
+
+[Enlace Ejemplo 4.6](https://editor.p5js.org/danipipe344/full/QbzbcmbEv)
+
+<img width="300" src="https://github.com/user-attachments/assets/0ffbb4d6-a43c-4b68-a871-dd80e3dcb2e7" />
+
+> El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un tiempo de vida, donde se revisa un array de las particulas, y las borra en el orden contrario, ademas de mantener por medio de una funcion crear emisores, y revisar esos emisores con sus propias funciones. Poseia una logica para asignar las fuerzas a las particulas mediante el emisor **Los cambios** que hice fue implementar segunla logica que ya tenia de las fuerzas ponerle un viento medianamente fuerte a las particulas cuando se le da click al canvas.
+>
 
 ### Ejemplo 4.7: a Particle System with a Repeller.
 
@@ -462,6 +590,7 @@ class Confetti extends Particle {
 </details>
 
 [Enlace Ejemplo 4.7](https://chatgpt.com/c/68cb4dfd-4c20-8323-9e93-d28596440a84)
+
 
 
 

@@ -10,13 +10,14 @@
 >
 
 ### Ejemplo 4.5: a Particle System with Inheritance and Polymorphism.
-> Utilice el concepto del pendulo, ademas de referenciarme de Memo Akten en su obra Simple Harmonic Motion.
+> 
 >
 
 ### Ejemplo 4.6: a Particle System with Forces.
-> Utilice el concepto del pendulo, ademas de referenciarme de Memo Akten en su obra Simple Harmonic Motion.
+> 
 >
 
 ### Ejemplo 4.7: a Particle System with a Repeller.
-> Utilice el concepto del pendulo, ademas de referenciarme de Memo Akten en su obra Simple Harmonic Motion.
+> 
 >
+

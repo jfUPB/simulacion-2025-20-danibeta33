@@ -111,6 +111,7 @@ function draw() {
 [Enlace Ejemplo 4.2](https://editor.p5js.org/danipipe344/full/ToGpPGcIy)
 
 <img width="300" src="https://github.com/user-attachments/assets/15630ac2-19b9-4e8b-a7f7-5c9f46465e9f" />
+<br></br>
 
 > El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un timepo de vida, donde se revisa un array dee las particulas, y las borra en el orden contrario. **Los cambios** que hice fue poner un noise, debido a la sencilles del ejercicio me parecio correcto simplemente cambiar los colores de la particula mientras viven, ademas para poder visualizarlo bien agrande el canvas y alargue la vida de las particulas.
 >
@@ -270,6 +271,7 @@ class Emitter {
 [Enlace Ejemplo 4.4](https://editor.p5js.org/danipipe344/full/PWvI6aHJl)
 
 <img width="300" height="230" alt="image" src="https://github.com/user-attachments/assets/4297a61f-d75d-46ca-850c-630776878259" />
+<br></br>
 
 > El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un tiempo de vida, donde se revisa un array dee las particulas, y las borra en el orden contrario, ademas de mantener por medio de una funcion crear emisores, y revisar esos emisores con sus propias funciones. **Los cambios** que hice fue poner una random gaussiano para la velocidad y el tamaño, asi poder ver cambios en la geenracion de particulas, manteniendo la simplesa del ejercicio
 >
@@ -437,6 +439,7 @@ class Confetti extends Particle {
 [Enlace Ejemplo 4.5](https://editor.p5js.org/danipipe344/full/yhVpWwkrA)
 
 <img width="300" src="https://github.com/user-attachments/assets/3a35a136-a1f7-4fb1-83eb-814a4d649460" />
+<br></br>
 
 > El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un tiempo de vida, donde se revisa un array de las particulas, y las borra en el orden contrario, ademas de mantener por medio de una funcion crear emisores, y revisar esos emisores con sus propias funciones. **Los cambios** fue añadir un salto de levy en la generacion de la particula de Confetti, teniendo un porcentaje menor de aparicion en vez de ser por algo aleatorio.
 >
@@ -576,6 +579,7 @@ class Emitter {
 [Enlace Ejemplo 4.6](https://editor.p5js.org/danipipe344/full/QbzbcmbEv)
 
 <img width="300" src="https://github.com/user-attachments/assets/0ffbb4d6-a43c-4b68-a871-dd80e3dcb2e7" />
+<br></br>
 
 > El ejercicio ya mantenia el sistema de eliminacion de particulas, esta se maneja on un tiempo de vida, donde se revisa un array de las particulas, y las borra en el orden contrario, ademas de mantener por medio de una funcion crear emisores, y revisar esos emisores con sus propias funciones. Poseia una logica para asignar las fuerzas a las particulas mediante el emisor **Los cambios** que hice fue implementar segunla logica que ya tenia de las fuerzas ponerle un viento medianamente fuerte a las particulas cuando se le da click al canvas.
 >
@@ -590,6 +594,7 @@ class Emitter {
 </details>
 
 [Enlace Ejemplo 4.7](https://chatgpt.com/c/68cb4dfd-4c20-8323-9e93-d28596440a84)
+
 
 
 

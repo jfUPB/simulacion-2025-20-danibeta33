@@ -1,9 +1,9 @@
 # Evidencias de la unidad 5 - Seek: Investigación
-## Actividad 02
+## Actividad 02: Preguntas
 
-### Preguntas
-#### Ejemplo 4.2: an Array of Particles.
+### Ejemplo 4.2: an Array of Particles.
 * ¿Cómo se está gestionando la creación y la desaparción de las partículas y cómo se gestiona la memoria en cada una de las simulaciones?
 > Utilice el concepto del pendulo, ademas de referenciarme de Memo Akten en su obra Simple Harmonic Motion.
 >
+
 

@@ -72,10 +72,279 @@
 ><img width="300" src="https://github.com/user-attachments/assets/22d46564-f56f-449d-be57-429ff5a674cb" />
 >
 
-### 
+### El código fuente completo de tu sketch en p5.js.
+
+<details>
+  <summary>flowfield.js</summary>
+  
+```js
+// FlowField: matriz 2D de vectores (influencia ligera en las partículas)
+class FlowField {
+  constructor(resolution = 40) {
+    this.resolution = resolution;
+    this.cols = floor(width / this.resolution);
+    this.rows = floor(height / this.resolution);
+    this.field = new Array(this.cols * this.rows);
+    this.zoff = 0;
+    this.update(); // inicializa
+  }
+
+  update() {
+    let xoffBase = random(1000) * 0; // opcional seed
+    let yoff = 0;
+    for (let j = 0; j < this.rows; j++) {
+      let xoff = 0;
+      for (let i = 0; i < this.cols; i++) {
+        // Perlin noise para ángulo; factor 2 para un poco más de giro local
+        let angle = noise(xoff, yoff, this.zoff) * TWO_PI * 2;
+        this.field[i + j * this.cols] = p5.Vector.fromAngle(angle);
+        xoff += 0.12;
+      }
+      yoff += 0.12;
+    }
+    // cambia muy lentamente en el tiempo para que el campo evolucione
+    this.zoff += 0.002;
+  }
+
+  // Devuelve copia del vector del campo para la posición dada
+  lookup(pos) {
+    let col = constrain(floor(pos.x / this.resolution), 0, this.cols - 1);
+    let row = constrain(floor(pos.y / this.resolution), 0, this.rows - 1);
+    return this.field[col + row * this.cols].copy();
+  }
+}
+
+```
+</details>
+
+<details>
+  <summary>particle.js</summary>
+  
+```js
+class Particle {
+  constructor(pos, vel, col) {
+    this.pos = pos.copy();
+    this.prev = this.pos.copy(); // guardar posición anterior para dibujar línea
+    this.vel = vel.copy();
+    this.acc = createVector(0, 0);
+    this.lifespan = 255;
+    this.color = col;
+  }
+
+  applyFlow(flow) {
+    let force = flow.lookup(this.pos);
+    this.applyForce(force.mult(0.05));
+  }
+
+  applyForce(f) {
+    this.acc.add(f);
+  }
+
+  update() {
+    this.prev = this.pos.copy(); // antes de movernos
+    this.vel.add(this.acc);
+    this.pos.add(this.vel);
+    this.acc.mult(0);
+    this.lifespan -= 4; // mueren un poco más rápido
+  }
+
+  show() {
+    stroke(this.color);
+    strokeWeight(5);
+    line(this.prev.x, this.prev.y, this.pos.x, this.pos.y); // línea en vez de punto
+  }
+
+  isDead() {
+    return this.lifespan <= 0;
+  }
+}
+```
+</details>
+
+<details>
+  <summary>sketch.js</summary>
+  
+```js
+let flow;
+let particles = [];
+let triBg;
+
+// audio
+let song;
+let fft;
+
+// colores
+const highColors = ["#fbdc03", "#b9d6aa", "#e16529"];
+const lowColors  = ["#64705c", "#a31e21"];
+
+// umbrales dinámicos para percusión
+let bassHistory = [];
+const historySize = 60; // ~1 segundo de historial (si quieres usarlo luego)
+let beatHoldFrames = 20; 
+let beatCutoff = 0;
+let beatDecayRate = 0.98;
+let framesSinceLastBeat = 0;
+
+function preload() {
+  song = loadSound("Los Caligaris - Kilómetros (video oficial).mp3");
+}
+
+function setup() {
+  createCanvas(750, 750);
+  background("#e1dbbb");
+
+  flow = new FlowField(40);
+
+  triBg = new TriBackground({
+    numRays: 12,
+    thickness: 210,  // grosor mayor según lo pediste
+    lengthFactor: 1.1,
+    color: "#913f41",
+    rotationSpeed: 0.005
+  });
+
+  fft = new p5.FFT(0.9, 1024);
+  fft.setInput(song);
+
+  let playBtn = createButton("Play / Pause");
+  playBtn.position(10, 10);
+  playBtn.mousePressed(togglePlay);
+}
+
+function draw() {
+  background("#e1dbbb");
+
+  triBg.draw();
+  triBg.update();
+  flow.update();
+
+  if (song && song.isPlaying()) {
+    let spectrum = fft.analyze(); 
+    let bass = fft.getEnergy("bass"); 
+    let treble = fft.getEnergy("treble");
+    let mid = fft.getEnergy("mid");
+
+    detectBeat(bass); // dispara con el golpe de batería (bass)
+
+    // si quieres también explosiones por agudos/medios mantenlas:
+    if (treble > 140 || mid > 140) {
+      // pequeña probabilidad para no sobrecargar; opcional:
+      if (random() < 0.08) spawnExplosion("high");
+    }
+  }
+
+  for (let i = particles.length - 1; i >= 0; i--) {
+    let p = particles[i];
+    p.applyFlow(flow);
+    p.update();
+    p.show();
+    if (p.isDead()) particles.splice(i, 1);
+  }
+}
+
+function detectBeat(bass) {
+  // lógica de detección de pico en graves (kick)
+  if (bass > beatCutoff && bass > 150) {
+    spawnExplosion("low");
+    beatCutoff = bass * 1.1;
+    framesSinceLastBeat = 0;
+  } else {
+    if (framesSinceLastBeat <= beatHoldFrames) {
+      framesSinceLastBeat++;
+    } else {
+      beatCutoff *= beatDecayRate;
+      beatCutoff = max(beatCutoff, 150);
+    }
+  }
+}
+
+function spawnExplosion(type) {
+  // elegir un único color de la paleta (por explosión)
+  let colArray = type === "high" ? highColors : lowColors;
+  let chosenColor = random(colArray);
+
+  let origin = createVector(
+    random(width * 0.3, width * 0.7), 
+    random(height * 0.3, height * 0.7)
+  );
+
+  let numParticles = 80; // moderado para no saturar
+  for (let i = 0; i < numParticles; i++) {
+    let angle = random(TWO_PI);
+    let speed = random(2, 6);
+    let vel = p5.Vector.fromAngle(angle).mult(speed);
+    particles.push(new Particle(origin.copy(), vel, chosenColor));
+  }
+
+  // límite máximo de partículas vivas en pantalla
+  if (particles.length > 600) {
+    particles.splice(0, particles.length - 600);
+  }
+}
+
+// CORRECCIÓN: definimos togglePlay aquí para evitar ReferenceError
+function togglePlay() {
+  if (!song) return;
+  if (song.isPlaying()) {
+    song.pause();
+  } else {
+    song.play();
+  }
+}
+
+function keyPressed() {
+  if (key === " ") togglePlay();
+}
+```
+</details>
+
+<details>
+  <summary>triBackground.js</summary>
+  
+```js
+// TriBackground: dibuja triángulos gruesos radiales rotando con velocidad constante.
+class TriBackground {
+  constructor(opts = {}) {
+    this.numRays = opts.numRays ?? 12;
+    this.thickness = opts.thickness ?? 500; // más gruesos por defecto
+    this.lengthFactor = opts.lengthFactor ?? 0.95;
+    this.color = opts.color ?? "#913f41";
+    this.rotationSpeed = opts.rotationSpeed ?? 0.01;
+    this.angleOffset = 0;
+  }
+
+  update(dt = 1) {
+    this.angleOffset += this.rotationSpeed * dt;
+  }
+
+  draw() {
+    push();
+    translate(width / 2, height / 2);
+    fill(this.color);
+    noStroke();
+    const L = width * this.lengthFactor;
+    const halfT = this.thickness / 2;
+    for (let i = 0; i < this.numRays; i++) {
+      let angle = this.angleOffset + (TWO_PI / this.numRays) * i;
+      push();
+      rotate(angle);
+      beginShape();
+      vertex(0, 0);
+      vertex(L, -halfT);
+      vertex(L, halfT);
+      endShape(CLOSE);
+      pop();
+    }
+    pop();
+  }
+}
+```
+</details>
+
 
 > [Link del Sketch](https://editor.p5js.org/danipipe344/full/PYamBL-Dd)
 >
+
 
 
 

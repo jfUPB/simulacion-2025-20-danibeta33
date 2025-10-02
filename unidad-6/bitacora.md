@@ -59,8 +59,12 @@
 >
 
 ### Describe la modificación que realizaste al código y explica detalladamente el efecto que tuvo en el comportamiento colectivo del enjambre (¿Se dispersan? ¿Forman grupos compactos? ¿se mueven caóticamente?). Incluye una captura de pantalla o GIF si ilustra bien el cambio. Muestra el fragmento de código modificado.
+> Modifique sus relgas del flocking para que puedan pegarse mas creando partes donde se dispersan y luego se concentran, todos yendo a un camino. Ademas de dar una fuerza con el mouse, para hacer como si fuerta un enjambre guiado. 
 >
+
+> <img width="600" src="https://github.com/user-attachments/assets/5729f541-2069-407c-be2b-1989d58c94d7" />
 >
+
 
 
 

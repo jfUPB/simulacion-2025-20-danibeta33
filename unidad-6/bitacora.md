@@ -48,3 +48,5 @@
 
 > <img width="600" src="https://github.com/user-attachments/assets/250267d2-c609-47e0-8c2b-052a9443247c" />
 >
+
+## Actividad 04

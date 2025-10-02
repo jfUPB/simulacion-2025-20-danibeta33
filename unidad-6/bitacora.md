@@ -28,3 +28,8 @@
 ### Qué relación tiene la steering force con Craig Reynolds y su trabajo en simulación de comportamiento animal?
 > Al ser como animales poseen un desitno y ademas un facotr de agrupacion, algo que se relaciona conceptualmente a la fuerza de direccion.
 >
+
+## Actividad 03
+### Explica brevemente la estructura de datos usada para el campo de flujo y cómo se generan sus vectores.
+>
+>

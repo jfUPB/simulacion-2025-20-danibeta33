@@ -341,11 +341,17 @@ class TriBackground {
 ```
 </details>
 
-
+### Un enlace a tu sketch en el editor de p5.js
 > [Link del Sketch](https://editor.p5js.org/danipipe344/full/PYamBL-Dd)
 >
 
+### Capturas de pantalla mostrando tu pieza en acción.
+><img width="350" src="https://github.com/user-attachments/assets/c39b404e-8acf-4e2b-9944-2aa02989a907" />
+>
 
+### AutoEvaluación. 
+> 4.0. Entendi y realice los diferentes modificaciones y comprendi los conceptos, sin embargo el estilo o el diseño de mi obra quedo muy basico, ademas que mucho de el desarrollo del codigo mayormente esta realizado con IA. Me gustan los Caligaris
+>
 
 
 

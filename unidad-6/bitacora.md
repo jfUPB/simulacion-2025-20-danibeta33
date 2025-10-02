@@ -41,3 +41,10 @@
 ### Lista los parámetros clave identificados (resolución, maxspeed, maxforce).
 > resolution, maxspeed, maxforce, número de vehículos, wraparound
 >
+
+### Describe la modificación que realizaste al código y explica detalladamente el efecto que tuvo en el movimiento y comportamiento colectivo de los agentes. Incluye una captura de pantalla o GIF si ilustra bien el cambio. Muestra el fragmento de código modificado.
+> Cambie las lmitantes de la fuerza como la velocidad de los vehiculos para que fueran increiblemente rapido, ademas de quitar los angulos a los espacios de los canvas para que todos vayan a la misma direccion y en aunque no cambie nada del movimiento reduje de los espacios del canvas creando mas filas como columnas. Generando asi movmimientos rapidas asi una direccion con un poco de lag intencional.
+>
+
+> <img width="600" src="https://github.com/user-attachments/assets/250267d2-c609-47e0-8c2b-052a9443247c" />
+>

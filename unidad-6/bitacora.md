@@ -50,3 +50,18 @@
 >
 
 ## Actividad 04
+### Explica con tus palabras el objetivo y la lógica general de cálculo de cada una de las tres reglas de Flocking (Separación, Alineación, Cohesión).
+>Cada vehiculo posee un area de calculo y ubica a los otros vehiculos con su respectivo destino, velcoidades, para poder calcular asi un promedio de las velocidades y su destino, ademas de poder generar un espacio mediante un tipo de fuerzas que lo repelen entre los otros vehiculos.
+>
+
+### Lista los parámetros clave identificados (radio de percepción, pesos de las reglas, maxspeed, maxforce).
+>neighborDistance, desiredSeparation, maxspeed, maxforce
+>
+
+### Describe la modificación que realizaste al código y explica detalladamente el efecto que tuvo en el comportamiento colectivo del enjambre (¿Se dispersan? ¿Forman grupos compactos? ¿se mueven caóticamente?). Incluye una captura de pantalla o GIF si ilustra bien el cambio. Muestra el fragmento de código modificado.
+>
+>
+
+
+
+

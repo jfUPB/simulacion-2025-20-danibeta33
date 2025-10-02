@@ -31,5 +31,13 @@
 
 ## Actividad 03
 ### Explica brevemente la estructura de datos usada para el campo de flujo y cómo se generan sus vectores.
+> Simplmenete se divide el canvas en partes donde se guardan los espacios en una matriz, y en cada espacio de ese canvas, se crea un vector normalizado que ira variando su direccion con el noise
 >
+
+### Describe con tus palabras cómo un agente utiliza el campo para calcular su fuerza de dirección.
+> Este agente llega al espacio del canvas, lee el vector dentro de ese espacio, donde hace operaciones segun su destino y su velocidad para calcular el movmiento que va a realizar
+>
+
+### Lista los parámetros clave identificados (resolución, maxspeed, maxforce).
+> resolution, maxspeed, maxforce, número de vehículos, wraparound
 >

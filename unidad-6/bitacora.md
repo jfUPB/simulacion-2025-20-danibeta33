@@ -65,6 +65,17 @@
 > <img width="600" src="https://github.com/user-attachments/assets/5729f541-2069-407c-be2b-1989d58c94d7" />
 >
 
+# Evidencias de la unidad 6: Apply-Aplicación 🛠
+
+## Actividad 05
+### Documenta todo el proceso de diseño y creación en tu bitácora, incluyendo bocetos y decisiones de diseño.
+><img width="300" src="https://github.com/user-attachments/assets/22d46564-f56f-449d-be57-429ff5a674cb" />
+>
+
+
+
+
+
 
 
 

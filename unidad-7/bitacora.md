@@ -13,3 +13,8 @@
 >
 
 ### ¿Cómo alterarías las letras o la composición para evocar el significado?
+> - Medicine: Tomaria la palabra medicine, donde la I con la C formarian el simbolo de la medicina, la C se transformaria en una serpiente que le da vueltas a la I para formar el simbolo
+> - Water: Iniciaria solo la parte de la palabra TER, donde la T rotaria en si misma como un grifo y como si fuera agua rellenar el resto de la palabra, WA
+
+# Evidencias de la unidad 7: Seek
+## Actividad 02

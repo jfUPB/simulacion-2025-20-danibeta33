@@ -34,10 +34,12 @@
 
 ### Tus bocetos y una explicación de cómo los inputs influirán en los visuales.
 > Tenia una idea clara de que iba a usar el fractal parecido al de la imagen, fractal isabella, sin embargo no tengo boceteado nada, ya que iba aprendiendo tras la marcha
-><img width="200"  src="https://github.com/user-attachments/assets/ef8eaf98-5323-40a7-8375-b03e7577e4ac" />
+>
+> <img width="200"  src="https://github.com/user-attachments/assets/ef8eaf98-5323-40a7-8375-b03e7577e4ac" />
 
 ## Actividad 03
 [https://youtu.be/-g0WYGpjXlE]
 
 ### Autoevaluacion
-3, debido a que no llego a ser muy interactiva la experiencia, aunque llegue a ser por cada iteracion unica, no creo que llegue hacer muy llamadtiva, a intenta un tema que nunca habia visto, demore, falle mucho y la berdad no pude entregar un proyecto bien hecho
+>3, debido a que no llego a ser muy interactiva la experiencia, aunque llegue a ser por cada iteracion unica, no creo que llegue hacer muy llamadtiva, a intenta un >tema que nunca habia visto, demore, falle mucho y la berdad no pude entregar un proyecto bien hecho
+>
